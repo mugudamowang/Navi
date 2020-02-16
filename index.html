@@ -62,9 +62,12 @@
             }
             index = index + 1;
         };
-        keyN.onkeypress = function(keyPress){
+        document.onkeypress = function(keyPress){
             console.log("hello");
-            
+            key = keyPress.key;
+            website = hash[key];
+            // location.href = website;地址栏输入  
+            window.open(website,'_blank');
         }
         
     </script>
