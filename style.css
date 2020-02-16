@@ -1,0 +1,24 @@
+*{margin: 0;padding: 0%;}
+body{
+    color: white;
+    background-color: black;
+}
+a{content: none;}
+kbd{
+    border: 1px solid red;
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    text-transform: uppercase;
+    
+    
+}
+main{
+    text-align: center;
+}
+#keyN{
+    display: inline-block;
+}
+#keyN > div{
+    margin: 2em;
+}

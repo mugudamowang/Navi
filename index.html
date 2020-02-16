@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>导航</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header></header>
+    <main>
+        <div class="war" id="keyN"></div>
+    </main>
+    <footer></footer>
+    <script>
+        var keys = {
+            0: ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', ],
+            1: ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ],
+            2: ['z', 'x', 'c', 'v', 'b', 'n', 'm', ],
+            length: 3
+        }
+        var hash = {
+            q: 'https://www.qq.com/',
+            w: 'https://www.weibo.com/',
+            e: 'https://www.easyicon.net/',
+            r: 'https://www.runoob.com/',
+            t: 'https://www.taobao.com/',
+            y: 'https://www.youtube.com/',
+            u: 'https://www.uupoop.com/',
+            i: 'https://www.iconfont.com/',
+            o: 'https://www.oschina.net/',
+            p: 'https://www.pexels.com/',
+            a: 'https://www.ayqy.net/',
+            s: 'https://www.ssyer.com/',
+            d: 'https://www.dy2018.com/',
+            f: 'https://www.ftium4.com/',
+            g: 'https://www.gaoding.com/',
+            h: 'https://www.hanyi.com/',
+            j: 'https://www.jianshu.com/',
+            k: 'https://www.keybr.com/',
+            l: 'https://www.lookae.com/',
+            z: 'https://www.zhihu.com/',
+            x: 'https://www.xueui.cn/',
+            c: 'https://www.csdn.net/',
+            v: undefined,
+            b: 'https://www.bukun.top/',
+            n: 'https:/https://www.nicovideo.jp/',
+            m: undefined,
+        }
+        index = 0;
+        while (index < keys.length) {
+            row = keys[index];
+            divE = document.createElement('div');
+            keyN.appendChild(divE);
+            index2 = 0
+            while (index2 < row.length) {
+                kbdE = document.createElement('kbd');
+                kbdE.textContent = row[index2];
+                divE.appendChild(kbdE);
+                index2 = index2 + 1;
+            }
+            index = index + 1;
+        };
+        keyN.onkeypress = function(keyPress){
+            console.log("hello");
+            
+        }
+        
+    </script>
+</body>
+
+</html>
