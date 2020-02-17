@@ -48,29 +48,31 @@
             n: 'https:/https://www.nicovideo.jp/',
             m: undefined,
         }
-        var hashInlocalStorage = JSON.parse(localStorage.getItem('LocalS')||'null');//加载本地缓存
-        if(hashInlocalStorage){
+        var hashInlocalStorage = JSON.parse(localStorage.getItem('LocalS') || 'null'); //加载本地缓存
+        if (hashInlocalStorage) {
             hash = hashInlocalStorage;
         }
         index = 0;
+        
         while (index < keys.length) {
             row = keys[index];
             divE = document.createElement('div');
+            divE.className = 'row';
             keyN.appendChild(divE);
             index2 = 0;
             while (index2 < row.length) {
                 kbdE = document.createElement('kbd');
                 kbdE.textContent = row[index2];
                 butE = document.createElement('button');
-                butE.textContent = 'EIDT';//编辑按钮
-                butE.id = row[index2];//给每个butE添加ID
+                butE.textContent = 'EIDT'; //编辑按钮
+                butE.id = row[index2]; //给每个butE添加ID
                 butE.onclick = function (butePress) {
                     keyme = butePress.target.id;
                     customeWeb = prompt('输入网址');
-                    hash[keyme] = customeWeb;//hash变更    
-                    localStorage.setItem('LocalS',JSON.stringify(hash));//本地缓存
+                    hash[keyme] = customeWeb; //hash变更    
+                    localStorage.setItem('LocalS', JSON.stringify(hash)); //本地缓存
                     console.log(hash);
-                }//butE作为容器,target可作为用户点击的没目标
+                } //butE作为容器,target可作为用户点击的没目标
                 kbdE.appendChild(butE);
                 divE.appendChild(kbdE);
                 index2 = index2 + 1;
