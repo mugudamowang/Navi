@@ -1,28 +1,45 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:700);
-::-webkit-scrollbar{display:none}
-*{margin: 0;padding: 0%;}
-body{background: url(./bg.png);}
-a{content: none;}
-main > div.war{
+
+::-webkit-scrollbar {
+    display: none
+}
+
+* {
+    margin: 0;
+    padding: 0%;
+}
+
+body {
+    background: url(./bg.png);
+}
+
+a {
+    content: none;
+}
+
+main>div.war {
     /* border: red solid 1px; */
     background-color: rgba(0, 0, 0, 0.226);
     border-radius: 20px;
-    box-shadow: 0 0px 25px 0 rgba(255, 255, 255, 0.438),inset 0 0px 15px 0 rgba(175, 173, 173, 0.185); 
+    box-shadow: 0 0px 25px 0 rgba(255, 255, 255, 0.438), inset 0 0px 15px 0 rgba(175, 173, 173, 0.185);
 }
-kbd{
+
+.kbds{
     color: #808185;
     font-family: 'Lato', sans-serif;
-    box-shadow: inset 0 0 35px 5px rgba(0,0,0,0.25), inset 0 2px 1px 1px rgba(255,255,255,0.9), inset 0 -2px 1px 0 rgba(0,0,0,0.25);    border-radius: 8px;
-    background: #ccd0d4; 
+    box-shadow: inset 0 0 35px 5px rgba(0, 0, 0, 0.25), inset 0 2px 1px 1px rgba(255, 255, 255, 0.9), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    background: #ccd0d4;
     display: inline-block;
     width: 4em;
     height: 3.2em;
     text-transform: uppercase;
     position: relative;
-    display: inline-flex;
+    /* display: inline-flex;
     align-items: center;
-    justify-content: center;/*此三句用于居中元素内容  */
+    justify-content: center;此三句用于居中元素内容  */
 }
+
 kbd > button {
     border: 1px groove #ffffff;
     border-radius: 2.5px;
@@ -33,12 +50,14 @@ kbd > button {
     background: transparent;
     position: absolute;
     display: none;
-    
+
 }
-kbd:hover > button{
+
+kbd:hover>button {
     display: inline-block;
 }
-main{
+
+main {
     /* max-width: 1024px;
     margin-left: auto;
     margin-right: auto;
@@ -50,19 +69,39 @@ main{
     align-items: center;
     height: 100vh;
 }
-#keyN{
+
+#keyN {
     display: inline-block;
 }
-#keyN > div:nth-child(2){
+
+#keyN>div:nth-child(2) {
     margin-left: 30px;
 }
-#keyN > div:nth-child(3){
+
+#keyN>div:nth-child(3) {
     margin-left: 45px;
 }
 
-.row{
+.row {
     margin: 16px;
 }
-.row kbd{
+
+.row kbd {
     margin: 0 14px;
+}
+
+.words {
+    position: absolute;
+    top: 2px;
+    left: 7px;
+}
+
+.icons {
+    position: absolute;
+    background: transparent;
+    border-radius: 50%;
+    top: 19px;
+    left: 24px;
+    width: 16px;
+    height: 16px;
 }

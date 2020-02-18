@@ -10,17 +10,17 @@
 <body>
     <header></header>
     <main>
-        <div id="keyN"></div>
+        <div class="war" id="keyN"></div>
     </main>
     <footer></footer>
     <script>
-        keys = {
+        var keys = {
             0: ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', ],
             1: ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ],
             2: ['z', 'x', 'c', 'v', 'b', 'n', 'm', ],
             length: 3
         }
-        hash = {
+        var hash = {
             q: 'https://www.qq.com/',
             w: 'https://www.weibo.com/',
             e: 'https://www.easyicon.net/',
@@ -45,41 +45,60 @@
             c: 'https://www.csdn.net/',
             v: undefined,
             b: 'https://www.bukun.top/',
-            n: 'https:/https://www.nicovideo.jp/',
+            n: 'https://www.nicovideo.jp/',
             m: undefined,
         }
-        index = 0;
-        var hashInlocalStorage = JSON.parse(localStorage.getItem('LocalS')||'null');//加载本地缓存
-        if(hashInlocalStorage){
+        var hashInlocalStorage = JSON.parse(localStorage.getItem('LocalS') || 'null'); //加载本地缓存
+        if (hashInlocalStorage) {
             hash = hashInlocalStorage;
         }
-        while(index < keys.length){
-            divE = document.createElement('div')
+        index = 0;
+        
+        while (index < keys.length) {
             row = keys[index];
-            index2 = 0
-            while(index2 < row.length){
-                kbdE = document.createElement('kbd')
-                kbdE.textContent = row[index2]
-                butE = document.createElement('button')
-                butE.textContent = 'EIDT'
-                butE.onclick = function(butPrE){
-                    key = butPrE.target.id
-                    customWeb = prompt('please input your website')
-                    hash[key] = customWeb;
-                    localStorage.setItem('LocalS',JSON.stringify(hash));//本地缓存
+            divE = document.createElement('div');
+            divE.className = 'row';
+            keyN.appendChild(divE);
+            index2 = 0;
+            while (index2 < row.length) {
+                kbdE = document.createElement('kbd');
+                kbdE.className = 'kbds';
+                spanE = document.createElement('span');
+                spanE.textContent = row[index2];
+                spanE.className = 'words';
+                kbdE.appendChild(spanE);
+                butE = document.createElement('button');
+                butE.textContent = 'EIDT'; //编辑按钮
+                butE.id = row[index2]; //给每个butE添加ID
+                butE.onclick = function (butePress) {
+                    keyme = butePress.target.id;
+                    customeWeb = prompt('输入网址');
+                    hash[keyme] = customeWeb; //hash变更    
+                    localStorage.setItem('LocalS', JSON.stringify(hash)); //本地缓存
                     console.log(hash);
-                } 
-                kbdE.appendChild(butE)
-                divE.appendChild(kbdE)
-                index2 = index2 + 1
+                } //butE作为容器,target可作为用户点击的没目标
+                imgE = document.createElement('img');
+                imgE.className = 'icons';
+                if(hash[row[index2]]){
+                    imgE.src = hash[row[index2]] + 'favicon.ico';
+                }
+                else{
+                    imgE.src = '';
+                    console.log(imgE.src);
+                }
+                
+                kbdE.appendChild(imgE);
+                kbdE.appendChild(butE);
+                divE.appendChild(kbdE);
+                index2 = index2 + 1;
             }
-            index = index +1
-            keyN.appendChild(divE)
-        }
-        document.onkeypress = function(keyPrE){
-            key = keyPrE.key;
+            index = index + 1;
+        };
+        document.onkeypress = function (keyPress) {
+            key = keyPress.key;
             website = hash[key];
-            window.open(website,'_blank')
+            // location.href = website;地址栏输入  
+            window.open(website, '_blank');
         }
     </script>
 </body>
