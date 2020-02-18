@@ -45,7 +45,7 @@
             c: 'https://www.csdn.net/',
             v: undefined,
             b: 'https://www.bukun.top/',
-            n: 'https:/https://www.nicovideo.jp/',
+            n: 'https://www.nicovideo.jp/',
             m: undefined,
         }
         var hashInlocalStorage = JSON.parse(localStorage.getItem('LocalS') || 'null'); //加载本地缓存
@@ -62,7 +62,11 @@
             index2 = 0;
             while (index2 < row.length) {
                 kbdE = document.createElement('kbd');
-                kbdE.textContent = row[index2];
+                kbdE.className = 'kbds';
+                spanE = document.createElement('span');
+                spanE.textContent = row[index2];
+                spanE.className = 'words';
+                kbdE.appendChild(spanE);
                 butE = document.createElement('button');
                 butE.textContent = 'EIDT'; //编辑按钮
                 butE.id = row[index2]; //给每个butE添加ID
@@ -73,6 +77,17 @@
                     localStorage.setItem('LocalS', JSON.stringify(hash)); //本地缓存
                     console.log(hash);
                 } //butE作为容器,target可作为用户点击的没目标
+                imgE = document.createElement('img');
+                imgE.className = 'icons';
+                if(hash[row[index2]]){
+                    imgE.src = hash[row[index2]] + 'favicon.ico';
+                }
+                else{
+                    imgE.src = '';
+                    console.log(imgE.src);
+                }
+                
+                kbdE.appendChild(imgE);
                 kbdE.appendChild(butE);
                 divE.appendChild(kbdE);
                 index2 = index2 + 1;
