@@ -72,7 +72,7 @@ function formkeyborad(keys, hash) {
 
         for (index2 = 0; index2 < row.length; index2++) {
 
-            var kbdE = createElement('kbd', 'kbds')
+            var kbdE = createElement('kbd', 'kbds');
             divE.appendChild(kbdE);
 
             var spanE = createElement('span', 'words')
@@ -87,7 +87,7 @@ function formkeyborad(keys, hash) {
             var imgE = createImg(hash[row[index2]]);
             kbdE.appendChild(imgE);
 
-            customeFix(hash,butE);
+            customeFix(hash, butE);
             localStorage.setItem('LocalS', JSON.stringify(hash)); //存入本地缓存
 
         } //butE作为容器,target可作为用户点击的目标
@@ -121,16 +121,38 @@ function createImg(link) {
 
 //C.1监听键盘
 function ListenToKeyborad(hash) {
-    document.onkeypress = function (keyPress) {
-        key = keyPress.key;
-        website = hash[key];
-        // location.href = website;地址栏输入  
-        window.open(website, '_blank');
+
+    // if (navigator.userAgent.match(/Android/i)
+    //     || navigator.userAgent.match(/webOS/i)
+    //     || navigator.userAgent.match(/iPhone/i)
+    //     || navigator.userAgent.match(/iPad/i)
+    //     || navigator.userAgent.match(/iPod/i)
+    //     || navigator.userAgent.match(/BlackBerry/i)
+    //     || navigator.userAgent.match(/Windows Phone/i)
+    // ) {
+    //     var mobileuser = document.getElementsByClassName("kbds")
+    //     console.log("this i phone")
+    //     mobileuser.onclick = function (keyPressM) {
+    //         key = keyPressM.key;
+            
+    //         website = hash[key];
+    //         // location.href = website;地址栏输入  
+    //         window.open(website, '_blank');
+    //     }
+    // } else {
+        document.onkeypress = function (keyPress) {
+            key = keyPress.key;
+            console.log(keyPress);
+            website = hash[key];
+            // location.href = website;地址栏输入  
+            window.open(website, '_blank');
+        }
     }
-}
+// }
+
 
 //C.2用户修改网址
-function customeFix(hash,element) {
+function customeFix(hash, element) {
     element.onclick = function (butePress) {
         var img2 = butePress.target.previousSibling;
         var keyme = butePress.target.id;
